@@ -229,16 +229,18 @@ public class Workshop {
 
     // Método que invierte una cadena
     public String invertirCadena(String cadena) {
-        // TODO: Implementar el método para invertir una cadena.
-        // Ejemplo: Si cadena = "Hello", el resultado debería ser "olleH".
-        return "";
+        String invertida = "";
+        for (int i = cadena.length() - 1; i >= 0; i--) {
+            invertida = invertida + cadena.charAt(i);
+        }
+        return invertida ;
     }
 
     // Método que verifica si una cadena es un palíndromo
     public boolean esPalindromo(String cadena) {
-        // TODO: Implementar el método para verificar si una cadena es un palíndromo.
-        // Ejemplo: Si cadena = "madam", el resultado debería ser true.
-        return false;
+        String limpia = cadena.replaceAll("\\s+", "").toLowerCase();
+        String invertida = new StringBuilder(limpia).reverse().toString();
+        return limpia.equals(invertida);
     }
 
     // Método que cuenta el número de palabras en una cadena
