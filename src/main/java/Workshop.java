@@ -288,10 +288,38 @@ public class Workshop {
 
     // Método que valida un correo electrónico
     public boolean validarCorreoElectronico(String correo) {
-        // TODO: Implementar el método para validar un correo electrónico.
-        // Ejemplo: Si correo = "test@example.com", el resultado debería ser true.
-        return false;
+        if (correo == null || correo.isEmpty()) {
+            return false;
+        }
+
+        if (!correo.contains("@")) {
+            return false;
+        }
+
+        if (correo.contains(" ")) {
+            return false;
+        }
+
+        String caracteresInvalidos = "$%^&*()";
+        for (int i = 0; i < caracteresInvalidos.length(); i++) {
+            if (correo.indexOf(caracteresInvalidos.charAt(i)) >= 0) {
+                return false;
+            }
+        }
+
+        int posicionArroba = correo.indexOf("@");
+        if (posicionArroba == 0 || posicionArroba == correo.length() - 1) {
+            return false;
+        }
+
+        String despuesArroba = correo.substring(posicionArroba + 1);
+        if (!despuesArroba.contains(".")) {
+            return false;
+        }
+
+        return true;
     }
+
 
     // Método que calcula el promedio de una lista de números
 
@@ -387,7 +415,7 @@ Rock crushes Scissors
     }
 
     public double areaCirculo(double radio) {
-        return 0.0;
+        return 3.141592653589793 * radio * radio;
     }
 
     public String zoodiac(int day, int month) {
