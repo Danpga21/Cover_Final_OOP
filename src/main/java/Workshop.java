@@ -393,26 +393,48 @@ public class Workshop {
     }
 
     public String pptls2(String game[]) {
-        //Retornar player ganador o empate
-            /*
-            Rock = R
-            Paper = P
-            Scissors = S
-            Lizard = L
-            Spock = V
-        Scissors cuts Paper
-Paper covers Rock
-Rock crushes Lizard
-Lizard poisons Spock
-Spock smashes Scissors
-Scissors decapitates Lizard
-Lizard eats Paper
-Paper disproves Spock
-Spock vaporizes Rock
-Rock crushes Scissors
-         */
-        return "";
+        String player1 = game[0];
+        String player2 = game[1];
+
+        if (player1.equals(player2)) {
+            return "Empate";
+        }
+
+        if (player1.equals("R")) {
+            if (player2.equals("S") || player2.equals("L")) {
+                return "Player 1";
+            } else {
+                return "Player 2";
+            }
+        } else if (player1.equals("P")) {
+            if (player2.equals("R") || player2.equals("V")) {
+                return "Player 1";
+            } else {
+                return "Player 2";
+            }
+        } else if (player1.equals("S")) {
+            if (player2.equals("P") || player2.equals("L")) {
+                return "Player 1";
+            } else {
+                return "Player 2";
+            }
+        } else if (player1.equals("L")) {
+            if (player2.equals("V") || player2.equals("P")) {
+                return "Player 1";
+            } else {
+                return "Player 2";
+            }
+        } else if (player1.equals("V")) {
+            if (player2.equals("S") || player2.equals("R")) {
+                return "Player 1";
+            } else {
+                return "Player 2";
+            }
+        }
+
+        return "Player 2";
     }
+
 
     public double areaCirculo(double radio) {
         return 3.141592653589793 * radio * radio;
