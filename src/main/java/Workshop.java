@@ -328,10 +328,25 @@ public class Workshop {
 
     // Método que convierte un número en su representación hexadecimal
     public String convertirAHexadecimal(int numero) {
-        // TODO: Implementar el método para convertir un número en su representación hexadecimal.
-        // Ejemplo: Si numero = 255, el resultado debería ser "FF".
-        return "";
+        if (numero == 0) {
+            return "0";
+        }
+
+        if (numero < 0) {
+            return "-" + convertirAHexadecimal(-numero);
+        }
+
+        String hex = "";
+        String digitos = "0123456789ABCDEF";
+
+        while (numero > 0) {
+            hex = digitos.charAt(numero % 16) + hex;
+            numero = numero / 16;
+        }
+        return hex;
     }
+
+
 
     // Método para el juego de piedra, papel, tijera, lagarto, Spock
     public String jugarPiedraPapelTijeraLagartoSpock(String eleccionUsuario) {
