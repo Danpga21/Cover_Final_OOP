@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.Random;
 
 public class Workshop {
     public static void main(String[] args) {
@@ -378,18 +379,47 @@ public class Workshop {
 
     // Método para el juego de piedra, papel, tijera, lagarto, Spock
     public String jugarPiedraPapelTijeraLagartoSpock(String eleccionUsuario) {
-        // TODO: Implementar el método para el juego de Piedra, Papel, Tijera, Lagarto, Spock.
-        // Las reglas del juego son:
-        // - Piedra vence a Tijera y Lagarto
-        // - Papel vence a Piedra y Spock
-        // - Tijera vence a Papel y Lagarto
-        // - Lagarto vence a Spock y Papel
-        // - Spock vence a Tijera y Piedra
+        String[] opciones = {"Piedra", "Papel", "Tijera", "Lagarto", "Spock"};
+        Random random = new Random();
+        String eleccionComputadora = opciones[random.nextInt(5)];
 
+        if (eleccionUsuario.equals(eleccionComputadora)) {
+            return "Empate";
+        }
 
-        // El método debe retornar un mensaje indicando el resultado del juego.
-        // Ejemplo: Si la eleccionUsuario es "Piedra", el resultado podría ser "Ganaste" o "Perdiste" dependiendo de la elección de la computadora.
-        return "";
+        if (eleccionUsuario.equals("Piedra")) {
+            if (eleccionComputadora.equals("Tijera") || eleccionComputadora.equals("Lagarto")) {
+                return "Ganaste";
+            } else {
+                return "Perdiste";
+            }
+        } else if (eleccionUsuario.equals("Papel")) {
+            if (eleccionComputadora.equals("Piedra") || eleccionComputadora.equals("Spock")) {
+                return "Ganaste";
+            } else {
+                return "Perdiste";
+            }
+        } else if (eleccionUsuario.equals("Tijera")) {
+            if (eleccionComputadora.equals("Papel") || eleccionComputadora.equals("Lagarto")) {
+                return "Ganaste";
+            } else {
+                return "Perdiste";
+            }
+        } else if (eleccionUsuario.equals("Lagarto")) {
+            if (eleccionComputadora.equals("Spock") || eleccionComputadora.equals("Papel")) {
+                return "Ganaste";
+            } else {
+                return "Perdiste";
+            }
+        } else if (eleccionUsuario.equals("Spock")) {
+            if (eleccionComputadora.equals("Tijera") || eleccionComputadora.equals("Piedra")) {
+                return "Ganaste";
+            } else {
+                return "Perdiste";
+            }
+        }
+
+        return "Perdiste";
     }
 
     public String pptls2(String game[]) {
